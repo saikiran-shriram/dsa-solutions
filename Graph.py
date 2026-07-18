@@ -1,4 +1,4 @@
-Number of Islands :
+# Number of Islands 
 class Solution(object):
     def numIslands(self, grid):
         """
@@ -26,7 +26,7 @@ class Solution(object):
                     fun(grid,i,j)
         return count
 
-Clone Graph :
+# Clone Graph 
 class Solution(object):
     def cloneGraph(self, node):
         """
@@ -49,7 +49,7 @@ class Solution(object):
         return fun(node)
 
 
-Course Schedule :
+# Course Schedule 
 class Solution(object):
     def canFinish(self, numCourses, prerequisites):
         """
@@ -81,4 +81,40 @@ class Solution(object):
         return True
  
 
+# Pacific Atlantic Water Flow 
+class Solution(object):
+    def pacificAtlantic(self, heights):
+        """
+        :type heights: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        pacific = set()
+        atlantic = set()
+        visited = set()
+        row = len(heights) 
+        col = len(heights[0])
+
+        def fun(r,c,visited,prev_height):
+            if (r,c) in visited :
+                return
+            if r < 0 or r >= row or c < 0 or c >= col :
+                return
+            if heights[r][c] < prev_height :
+                return
+            visited.add((r,c))
+
+            fun(r+1,c,visited,heights[r][c])
+            fun(r-1,c,visited,heights[r][c])
+            fun(r,c+1,visited,heights[r][c])
+            fun(r,c-1,visited,heights[r][c])
         
+        for c in range(col) :
+            fun(0,c,pacific,heights[0][c])
+        for r in range(row):
+            fun(r,0,pacific,heights[r][0])
+        for c in range(col):
+            fun(row-1,c,atlantic,heights[row-1][c])
+        for r in range(row):
+            fun(r,col-1,atlantic,heights[r][col-1])
+        
+        return [[r,c] for r in range(row) for c in range(col) if (r,c) in pacific and (r,c) in atlantic]
