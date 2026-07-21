@@ -118,3 +118,32 @@ class Solution(object):
             fun(r,col-1,atlantic,heights[r][col-1])
         
         return [[r,c] for r in range(row) for c in range(col) if (r,c) in pacific and (r,c) in atlantic]
+
+
+# Find if Path Exists in Graph
+class Solution(object):
+    def validPath(self, n, edges, source, destination):
+        """
+        :type n: int
+        :type edges: List[List[int]]
+        :type source: int
+        :type destination: int
+        :r(type: bool
+        """
+        visited = set()
+        adj = {i: [] for i in range(n)}
+        for j,k in edges :
+            adj[j].append(k)
+            adj[k].append(j)
+        def fun(node) :
+            if node in visited :
+                return False
+            if node == destination :
+                return True
+            visited.add(node)
+            for neighbor in adj[node] :
+                if fun(neighbor) :
+                    return True
+            return False
+        return fun(source)
+
