@@ -4,10 +4,5 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # list = []
-        # for i in range(len(nums)+1) :
-        #     list.append(i)
-        # return sum(list) - sum(nums)
-
         return (len(nums)* (len(nums)+1) / 2) - sum(nums)
         
