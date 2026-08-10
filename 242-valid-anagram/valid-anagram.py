@@ -7,12 +7,20 @@ class Solution(object):
         """
         if len(s) != len(t) :
             return False
-        dict = {}
+        dict_s = {}
+        dict_t = {}
         for i in s :
-           dict[i] = s.count(i)
+            if i in dict_s :
+                dict_s[i] += 1
+            else :
+                dict_s[i] = 1
         for j in t :
-            if j not in dict or t.count(j) != dict[j] :
-                return False
+            if j in dict_t :
+                dict_t[j] += 1
+            else :
+                dict_t[j] = 1
+        if dict_s != dict_t :
+            return False
         return True
             
         
