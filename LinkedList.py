@@ -55,7 +55,7 @@ class Solution(object):
         return dummy.next
 
 
-# Reverse Linked List 
+# Reverse Linked List -  Beat 100%
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
