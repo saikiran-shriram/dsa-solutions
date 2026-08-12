@@ -147,3 +147,29 @@ class Solution(object):
             return False
         return fun(source)
 
+# Redundant Connection 
+class Solution(object):
+    def findRedundantConnection(self, edges):
+        """
+        :type edges: List[List[int]]
+        :rtype: List[int]
+        """
+        visited = set()
+        def has_path (src, dest,visited) :
+            if src == dest:
+                return True
+            if src in visited:
+                return False
+            visited.add(src)
+            for neighbor in adj[src]:
+                if has_path(neighbor, dest, visited):
+                    return True
+            return False
+        adj = {i: [] for i in range(len(edges)+1)}
+
+        for u,v in edges :
+            if has_path(u,v,set()) :
+                return [u,v]
+            adj[u].append(v)
+            adj[v].append(u)
+ 

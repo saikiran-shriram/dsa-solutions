@@ -86,4 +86,55 @@ class Solution(object):
             x = x//10
         return rev == x or rev // 10 == x
        
-                
+# Jump Game 
+class Solution(object):
+    def canJump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        max_reach = 0
+        for i in range(len(nums)):
+            if i > max_reach:
+                return False
+            max_reach = max(max_reach, i + nums[i])
+        return True
+
+        
+# Jump Game II
+class Solution(object):
+    def jump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        current_end = 0
+        jumps = 0
+        farthest = 0
+        for i in range(len(nums)-1) :
+            farthest = max(farthest, i + nums[i])
+            if i == current_end:  
+                jumps += 1
+                current_end = farthest
+        return jumps  
+
+# Maximum Product Subarray
+class Solution(object):
+    def maxProduct(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        result = nums[0]
+        max_product = nums[0]
+        min_product = nums[0]
+
+        for num in nums[1:] :
+            if num < 0:
+                max_product , min_product = min_product, max_product
+            max_product = max(num , num* max_product)
+            min_product = min(num , num* min_product)
+            result = max(result, max_product)
+            
+        return result
+
