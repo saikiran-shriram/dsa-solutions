@@ -10,8 +10,8 @@ Daily LeetCode practice — Data Structures & Algorithms
 - Dynamic Programming
 
 ## Progress
-- Total solved: 25+
-- Difficulty: Easy + Medium
+- Total solved: 50+
+- Difficulty: Easy + Medium + Hard
 - Streak: Daily practice
 
 ## Connect
