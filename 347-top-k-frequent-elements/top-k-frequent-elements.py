@@ -1,6 +1,6 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        result = [None] * k
+        result = []
         count = {}
         visited = []
         for i in range(len(nums)) :
@@ -16,7 +16,7 @@ class Solution:
                 if count[key] > max_val:
                     max_val = count[key]
                     max_key = key
-            result[i] = max_key
+            result.append(max_key)
             del count[max_key]
         return result
 
