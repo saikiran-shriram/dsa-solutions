@@ -8,8 +8,6 @@ class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         if len(preorder) < 1:
             return None
-        if len(preorder) ==1 :
-            return TreeNode(preorder[0])
         root = TreeNode(preorder[0])
         for i in range(len(inorder)) :
             if inorder[i] == root.val :
