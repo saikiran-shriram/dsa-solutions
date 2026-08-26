@@ -25,6 +25,8 @@ class Codec:
                 q.append(node.right)
             else :
                 result.append('null')
+        while result[-1] == 'null':
+            result.pop()
         return ','.join(result)
 
     def deserialize(self, data):
@@ -42,15 +44,17 @@ class Codec:
         i = 1
         while q2 :
             node = q2.popleft()
-            if values[i] != 'null' :
-                node.left = TreeNode(int(values[i]))
-            else :
-                node.left = None
+            if i < len(values):
+                if values[i] != 'null' :
+                    node.left = TreeNode(int(values[i]))
+                else :
+                    node.left = None
             i += 1
-            if values[i] != 'null' :
-                node.right = TreeNode(int(values[i]))
-            else :
-                node.right = None
+            if i < len(values):
+                if values[i] != 'null' :
+                    node.right = TreeNode(int(values[i]))
+                else :
+                    node.right = None
             i += 1
             if node.left:
                 q2.append(node.left)
