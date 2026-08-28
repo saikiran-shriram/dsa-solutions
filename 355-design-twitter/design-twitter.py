@@ -1,10 +1,8 @@
-from collections import deque
-from collections import OrderedDict
 class Twitter:
 
     def __init__(self):
-        self.tweets = OrderedDict()
-        self.followers = OrderedDict()
+        self.tweets = {}
+        self.followers = {}
         self.count = 0
 
     def postTweet(self, userId: int, tweetId: int) -> None:
@@ -12,7 +10,6 @@ class Twitter:
             self.tweets[userId] = []
         self.count += 1
         self.tweets[userId].append((tweetId,self.count))
-        self.tweets.move_to_end(userId)
 
     def getNewsFeed(self, userId: int) -> List[int]:
         post = [] 
