@@ -8,7 +8,7 @@ class Solution:
                 box_index = (i//3) * 3 + (j//3)
                 if board[i][j] == '.':
                     continue
-                if board[i][j] in rows[i] :
+                elif board[i][j] in rows[i] :
                     return False
                 elif board[i][j] in cols[j] :
                     return False
