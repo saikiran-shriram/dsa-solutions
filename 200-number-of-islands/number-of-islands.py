@@ -3,9 +3,9 @@ class Solution:
         visited = set()
         def fun(i,j,grid) :
             if i <0 or i>= rows or j <0 or j>= cols :
-                return
+                return False
             if grid[i][j] == '0' :
-                return
+                return False
             if (i,j) in visited :
                 return False
             visited.add((i,j))
