@@ -7,10 +7,10 @@ class Solution:
                 if nums[i] not in current :
                     current.append(nums[i])
                     if len(current) == len(nums) :
-                        c = list(current)
-                        result.append(c)
+                        copy = list(current)
+                        result.append(copy)
                     else :
                         fun(current)
-                    current.remove(nums[i])
+                    current.pop()
             return result
         return fun(current)
