@@ -2,9 +2,6 @@ class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         result = []
         current = []
-        if len(nums) == 1 :
-            result.append(nums)
-            return result
         def fun(current) :
             for i in range(len(nums)) :
                 if nums[i] not in current :
