@@ -14,17 +14,17 @@ class Solution:
                 count += 1
             if count < k: 
                 return start 
-            if count == k:
-                current = start
-                while current != head:
-                    stack.append(current)
-                    current = current.next
-                new_head = stack.pop()
-                prev = new_head 
-                while stack:
-                    node = stack.pop()
-                    prev.next = node
-                    prev = node
+                
+            current = start
+            while current != head:
+                stack.append(current)
+                current = current.next
+            new_head = stack.pop()
+            prev = new_head 
+            while stack:
+                node = stack.pop()
+                prev.next = node
+                prev = node
             remaining = fun(head)
             start.next = remaining
             return new_head
