@@ -3,14 +3,25 @@
 Daily LeetCode practice — Data Structures & Algorithms
 
 ## Topics Covered
-- Arrays & Strings
+- Arrays & Hashing
+- Strings
+- Two Pointers & Sliding Window
+- Binary Search
 - Linked Lists
-- Trees (DFS, BFS)
-- Graphs (DFS, BFS, Cycle Detection)
+- Trees & Binary Search Trees
+- Graphs (DFS, BFS, Topological Sort, Union-Find)
 - Dynamic Programming
+- Backtracking
+- Greedy Algorithms
+- Tries
+- Heaps / Priority Queues
+- Intervals
+- Matrix
+- Bit Manipulation
+- Design Data Structures
 
 ## Progress
-- Total solved: 85+
+- Total solved: 90+
 - Difficulty: Easy + Medium + Hard
 - Streak: Daily practice
 
