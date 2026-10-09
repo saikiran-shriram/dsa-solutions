@@ -5,18 +5,17 @@ class Node:
         self.val = val
         self.neighbors = neighbors if neighbors is not None else []
 """
-from typing import Optional
 class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
-        dict = {}
-        def fun(node) :
-            if node in dict.keys() :
-                return dict[node]
+        visited = {}  
+        def fun(node):
+            if node in visited:
+                return visited[node]
             if node is None:
                 return
-            node1 = Node(node.val)
-            dict[node] = node1
-            for neighbor in node.neighbors :
-                node1.neighbors.append(fun(neighbor))
-            return dict[node]
+            clone = Node(node.val)
+            visited[node] = clone
+            for neighbor in node.neighbors:
+                clone.neighbors.append(fun(neighbor))
+            return clone
         return fun(node)
