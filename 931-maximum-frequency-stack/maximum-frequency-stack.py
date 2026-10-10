@@ -1,6 +1,4 @@
 class FreqStack:
-    from collections import Counter
-
     def __init__(self):
        self.freq = {}
        self.group = {}
