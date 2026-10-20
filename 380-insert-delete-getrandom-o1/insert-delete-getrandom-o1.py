@@ -16,10 +16,14 @@ class RandomizedSet:
         if val not in self.nums :
             return False
         last = self.nums[-1]
-        self.nums[self.nums.index(val)] = last
-        self.RandomizedSet[last] -= 1
-        del self.RandomizedSet[val]
-        self.nums.pop()
+        if val == last:
+            self.nums.pop()
+            del self.RandomizedSet[val]
+        else :
+            self.nums[self.nums.index(val)] = last
+            self.RandomizedSet[last] -= 1
+            del self.RandomizedSet[val]
+            self.nums.pop()
         return True
 
     def getRandom(self) -> int:
