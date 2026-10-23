@@ -1,19 +1,22 @@
 class Solution:
     def networkDelayTime(self, times: list[list[int]], n: int, k: int) -> int:
+        graph = {}
+        import heapq
         dist = [float('inf')] * (n + 1)
         dist[k] = 0
-        graph = {i: [] for i in range(1, n + 1)}
-        for u, v, w in times:
-            graph[u].append((v, w))
         heap = [(0, k)]
+        for u, v, w in times:
+            if u not in graph:
+                graph[u] = []
+            graph[u].append((v, w))
         while heap:
-            d, u = heapq.heappop(heap)
-            if d > dist[u]:
+            time, node = heapq.heappop(heap)
+            if time > dist[node]:
                 continue
-            for v, w in graph[u]:
-                new_dist = d + w
-                if new_dist < dist[v]:
-                    dist[v] = new_dist
-                    heapq.heappush(heap, (new_dist, v))
-        answer = max(dist[1:])
-        return answer if answer != float('inf') else -1
+            for v, w in graph.get(node, []):
+                new_time = time + w
+                if new_time < dist[v]:
+                    dist[v] = new_time
+                    heapq.heappush(heap,(new_time,v))
+        result = max(dist[1:])
+        return result if result != float('inf') else -1
