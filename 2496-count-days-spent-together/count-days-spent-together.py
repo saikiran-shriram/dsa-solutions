@@ -8,11 +8,3 @@ class Solution:
         start = max(convert(arriveAlice), convert(arriveBob))
         end = min(convert(leaveAlice), convert(leaveBob))
         return max(0, end - start + 1)
-
-
-
-        # from datetime import datetime
-        # d1 = datetime.strptime(arriveAlice, "%m-%d")
-        # d2 = datetime.strptime(arriveBob, "%m-%d")
-        # diff = abs((d2 - d1).days)
-        # if diff <=
