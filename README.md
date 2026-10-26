@@ -21,7 +21,7 @@ Daily LeetCode practice — Data Structures & Algorithms
 - Design Data Structures
 
 ## Progress
-- Total solved: 120+
+- Total solved: 125+
 - Difficulty: Easy + Medium + Hard
 - Streak: Daily practice
 
