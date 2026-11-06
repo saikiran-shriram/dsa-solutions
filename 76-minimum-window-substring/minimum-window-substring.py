@@ -1,31 +1,84 @@
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
-        left = 0
-        right = 0
-        valid = 0 
-        min_length = float('inf')
-        window_length = 0
-        dict_t = {}
-        dict_s = {}
-        for ch in t:
-            dict_t[ch] = dict_t.get(ch, 0) + 1
-        while right < len(s) :
-            ch = s[right]
-            dict_s[ch] = dict_s.get(ch, 0) + 1
-            if ch in dict_t and dict_s[ch] == dict_t[ch]:
-                valid += 1 
-            while valid == len(dict_t) :
-                window_length = right - left + 1
-                if window_length < min_length:
-                    min_length = window_length
-                    start = left
-                left_char = s[left]
-                dict_s[left_char] -= 1
-                if left_char in dict_t and dict_s[left_char] < dict_t[left_char]:
-                    valid -= 1
-                left += 1 
-            right += 1
-        if min_length == float('inf') :
+        need = {}
+        window = {}
+        if not t:
             return ""
-        return s[start:start + min_length]
+        for ch in t:
+            need[ch] = need.get(ch, 0) + 1
+        formed = 0
+        required = len(need)
+        left = 0
+        min_len = float('inf')
+        start = 0
+        for right in range(len(s)):
+            ch = s[right]
+            window[ch] = window.get(ch, 0) + 1
+            if ch in need and window[ch] == need[ch]:
+                formed += 1
+            while formed == required:
+                if right - left + 1 < min_len:
+                    min_len = right - left + 1
+                    start = left 
+                left_char = s[left]
+                window[left_char] -= 1
+                if left_char in need and window[left_char] < need[left_char]:
+                    formed -= 1
+                left += 1
+        if min_len == float('inf'):
+            return ""
+        return s[start:start+min_len]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             
