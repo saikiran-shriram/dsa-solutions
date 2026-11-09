@@ -1,28 +1,26 @@
 class Solution:
     def totalNQueens(self, n: int) -> int:
-        count = 0
-        def isSafe(r1,r2,c1,c2):
-            if c1 == c2 :
-                return False
-            if abs(r1 - r2) == abs(c1 - c2) :
-                return False
-            return True  
         queens = []
-        def solve(current_row): 
-            if len(queens) == n :
-                nonlocal count
+        count = 0
+        def isSafe(col):
+            for r, c in enumerate(queens):
+                if col == c :
+                    return False
+                if abs(r - len(queens)) == abs(c - col) :
+                    return False
+            return True
+
+        def solve(current_row):
+            nonlocal count
+            if len(queens) == n:
                 count += 1
                 return
-            for current_col in range(n): 
-                safe = True
-                for r, c in enumerate(queens):
-                    if not isSafe(current_row, r, current_col, c):
-                        safe = False
-                        break
-                if not safe:
-                    continue
-                queens.append(current_col)
-                solve(current_row + 1)
-                queens.pop()
+            for col in range(n):
+                if isSafe(col) :
+                    queens.append(col)
+                    solve(current_row +1)
+                    queens.pop()
+        
         solve(0)
         return count
+            
