@@ -1,6 +1,5 @@
 class Solution:
     def lastStoneWeightII(self, stones: list[int]) -> int:
-        import heapq
         total = sum(stones)
         target = total // 2 
         dp = [False] * (target + 1)
