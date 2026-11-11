@@ -8,9 +8,10 @@ class KthLargest:
             heapq.heappop(self.nums)
 
     def add(self, val: int) -> int:
-        heapq.heappush(self.nums, val)
-        if len(self.nums) > self.k:
-            heapq.heappop(self.nums)
+        if len(self.nums) < self.k:
+            heapq.heappush(self.nums, val)
+        elif val > self.nums[0]:
+            heapq.heapreplace(self.nums, val)
         return self.nums[0]
 
 
