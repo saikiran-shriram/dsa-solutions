@@ -22,7 +22,7 @@ class TimeMap:
             if values[mid][1] > timestamp :
                 right = mid -1
         if right >= 0 :
-            return self.timeMap[key][right][0]
+            return values[right][0]
         else :
             return ''
 
