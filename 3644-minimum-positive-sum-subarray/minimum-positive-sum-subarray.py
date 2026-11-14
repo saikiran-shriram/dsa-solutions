@@ -4,8 +4,7 @@ class Solution:
         for i in range(len(nums)):
             for j in range(i, len(nums)):
                 length = j-i+1
-                if l <= length <= r:
-                    total = sum(nums[i:j+1])
-                    if total > 0 :
-                        answer = min(answer,total)
+                total = sum(nums[i:j+1])
+                if l <= length <= r and total > 0 :
+                    answer = min(answer,total)
         return answer if answer != float('inf') else -1
