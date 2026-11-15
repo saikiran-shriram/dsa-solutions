@@ -7,23 +7,30 @@ Daily LeetCode practice — Data Structures & Algorithms
 - Strings
 - Two Pointers & Sliding Window
 - Binary Search
+- Sorting
+- Prefix Sum
+- Stacks & Queues (Monotonic Stack)
 - Linked Lists
 - Trees & Binary Search Trees
 - Graphs (DFS, BFS, Topological Sort, Union-Find)
 - Dynamic Programming
-- Backtracking
+- Backtracking & Recursion
 - Greedy Algorithms
 - Tries
 - Heaps / Priority Queues
 - Intervals
 - Matrix
 - Bit Manipulation
+- Math & Number Theory
 - Design Data Structures
 
 ## Progress
-- Total solved: 145+
-- Difficulty: Easy + Medium + Hard
-- Streak: Daily practice
+- Total Solved: 145+
+- Difficulty: Easy, Medium & Hard
+- Practice: Daily LeetCode problem-solving
+
+## Contest Participation
+- LeetCode Contests Participated: 3
 
 ## Connect
 - LinkedIn: [linkedin.com/in/saikiran-shriram](https://linkedin.com/in/saikiran-shriram)
