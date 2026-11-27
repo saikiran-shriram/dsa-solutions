@@ -3,14 +3,9 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        def reverse(left, right):
-            while left < right:
-                nums[left], nums[right] = nums[right], nums[left]
-                left += 1
-                right -= 1
-
         k %= len(nums)
-        reverse(0, len(nums) - 1)
-        reverse(0, k - 1) 
-        reverse(k, len(nums) - 1)
+        nums.reverse()
+        nums[:k] = nums[:k][::-1]
+        nums[k:] = nums[k:][::-1]
+    
         return nums
